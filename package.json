@@ -25,7 +25,6 @@
     "build-css": "node-sass-chokidar src/ -o src/ --include-path ./src",
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --include-path ./src --watch --recursive",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "devDependencies": {

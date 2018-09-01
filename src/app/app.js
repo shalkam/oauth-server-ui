@@ -33,7 +33,7 @@ export class App extends React.Component {
   render() {
     return (
       <Layout>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <Route exact path="/" component={routes.home} />
           </Switch>
