@@ -5,7 +5,7 @@ export default {
     dispatch({
       type: getBucketsRequest,
       request: {
-        url: 'buckets',
+        url: 'data.json',
         method: 'GET'
       }
     })
