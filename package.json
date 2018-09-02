@@ -1,7 +1,7 @@
 {
   "name": "cra-rest-starter",
   "version": "0.1.0",
-  "homepage": "http://shalkam.github.io/cra-rest-starter",
+  "homepage": "https://shalkam.github.io/cra-rest-starter",
   "dependencies": {
     "antd": "^3.7.3",
     "axios": "^0.18.0",
