@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../layout';
 import routes from './routes';
@@ -33,11 +33,12 @@ export class App extends React.Component {
   render() {
     return (
       <Layout>
-        <HashRouter>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/" component={routes.home} />
+            <Route path="/login" component={routes.login} />
           </Switch>
-        </HashRouter>
+        </BrowserRouter>
       </Layout>
     );
   }

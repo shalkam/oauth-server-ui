@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import thunk from 'redux-thunk';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 import reducers from './reducers';
 import AppContainer from './app';
 import rootSaga from './sagas';
@@ -20,9 +22,12 @@ const enhanceCreateStore = compose(
     : f => f
 )(createStore);
 const store = enhanceCreateStore(reducer);
+const persistor = persistStore(store);
 const AppWithWrappers = () => (
   <Provider store={store}>
-    <AppContainer />
+    <PersistGate loading={null} persistor={persistor}>
+      <AppContainer />
+    </PersistGate>
   </Provider>
 );
 sagaMiddleware.run(rootSaga);

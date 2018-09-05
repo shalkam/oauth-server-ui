@@ -7,11 +7,11 @@ const { Header, Content, Footer } = AntdLayout;
 
 const Layout = ({ children }) => (
   <AntdLayout className="layout">
-    <Header className="layout-header">React Rest Starter</Header>
+    <Header className="layout-header">OAuth Server UI</Header>
     <Content>
       <div className="layout-content">{children}</div>
     </Content>
-    <Footer style={{ textAlign: 'center' }}>React Rest Starter ©2018</Footer>
+    <Footer style={{ textAlign: 'center' }}>OAuth Server UI ©2018</Footer>
   </AntdLayout>
 );
 Layout.propTypes = {
