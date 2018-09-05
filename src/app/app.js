@@ -1,47 +1,54 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { Redirector } from 'react-router-redirect';
 import axios from 'axios';
 import Layout from '../layout';
 import routes from './routes';
 
 export class App extends React.Component {
   static propTypes = {
-    token: PropTypes.string
+    accessToken: PropTypes.string
   };
 
   static defaultProps = {
-    token: null
+    accessToken: null
   };
 
   componentWillMount() {
-    const { token } = this.props;
+    const { accessToken } = this.props;
     axios.defaults.baseURL = process.env.REACT_APP_API;
-    if (token) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+    if (accessToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
     }
-    if (!token) delete axios.defaults.headers.common.Authorization;
+    if (!accessToken) delete axios.defaults.headers.common.Authorization;
   }
 
-  componentWillReceiveProps({ token }) {
-    if (token) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  componentWillReceiveProps({ accessToken }) {
+    if (accessToken) {
+      axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
     }
-    if (!token) delete axios.defaults.headers.common.Authorization;
+    if (!accessToken) delete axios.defaults.headers.common.Authorization;
   }
 
   render() {
     return (
       <Layout>
         <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={routes.home} />
-            <Route path="/login" component={routes.login} />
-          </Switch>
+          <React.Fragment>
+            <Redirector />
+            <Switch>
+              <Route exact path="/" component={routes.home} />
+              <Route path="/login" component={routes.login} />
+            </Switch>
+          </React.Fragment>
         </BrowserRouter>
       </Layout>
     );
   }
 }
 
-export default App;
+export default connect(({ app: { user: { accessToken } } }) => ({
+  accessToken
+}))(App);
