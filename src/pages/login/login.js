@@ -66,7 +66,6 @@ class Login extends React.Component {
             )}
           </FormItem>
           <Button
-            block
             loading={pending === 1}
             type="primary"
             htmlType="submit"
