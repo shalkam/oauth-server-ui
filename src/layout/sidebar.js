@@ -30,8 +30,7 @@ Sidebar.propTypes = {
 };
 
 export default withHandlers({
-  handleMenu: () => ({ item, key, keyPath }) => {
-    console.log({ item, key, keyPath });
+  handleMenu: () => ({ key }) => {
     switch (key) {
       case '1':
         push('/');

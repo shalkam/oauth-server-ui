@@ -7,16 +7,18 @@ import './styles/index.css';
 const { Header, Content, Footer } = AntdLayout;
 
 const Layout = ({ children }) => (
-  <AntdLayout>
-    <Sidebar />
+  <React.Fragment>
+    <Header className="layout-header">OAuth Server UI</Header>
     <AntdLayout className="layout">
-      <Header className="layout-header">OAuth Server UI</Header>
-      <Content>
-        <div className="layout-content">{children}</div>
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>OAuth Server UI ©2018</Footer>
+      <Sidebar />
+      <AntdLayout>
+        <Content>
+          <div className="layout-content">{children}</div>
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>OAuth Server UI ©2018</Footer>
+      </AntdLayout>
     </AntdLayout>
-  </AntdLayout>
+  </React.Fragment>
 );
 Layout.propTypes = {
   children: PropTypes.node.isRequired

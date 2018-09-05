@@ -1,6 +1,6 @@
 @import url(~antd/dist/antd.css);
 .layout {
-  min-height: 100vh; }
+  min-height: calc(100vh - 64px); }
   .layout-content {
     padding: 24px;
     min-height: 280px;

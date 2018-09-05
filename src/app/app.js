@@ -41,6 +41,7 @@ export class App extends React.Component {
             <Switch>
               <Route exact path="/" component={routes.home} />
               <Route path="/login" component={routes.login} />
+              <Route path="/my-apps" component={routes['my-apps']} />
             </Switch>
           </React.Fragment>
         </BrowserRouter>

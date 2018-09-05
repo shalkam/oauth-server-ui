@@ -1,0 +1,15 @@
+@import 'layout/styles/helpers/_breakpoints.scss';
+
+.page-home {
+    flex: 1;
+    @include for-tablet-portrait-up {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    @include for-tablet-landscape-up {
+        display: flex;
+        overflow-x: scroll;
+        flex-wrap: nowrap;
+    }
+    @import "./_bucket.scss";
+}
